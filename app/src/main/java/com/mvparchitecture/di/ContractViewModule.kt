@@ -1,5 +1,6 @@
 package com.mvparchitecture.di
 
+import android.app.Activity
 import com.mvparchitecture.presenter.UserContract
 import com.mvparchitecture.view.MainActivity
 import dagger.Module
@@ -17,6 +18,12 @@ object ContractViewModule {
     @ActivityScoped
     fun provideUserView(mainActivity: MainActivity): UserContract.View {
         return mainActivity
+    }
+
+    @Provides
+    @ActivityScoped
+    fun provideMainactivity(activity: Activity):MainActivity{
+        return activity as MainActivity
     }
 
 }
